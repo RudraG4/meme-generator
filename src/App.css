@@ -1,38 +1,225 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Poppins, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
+  height: 65px;
+  padding: 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+  justify-content: flex-start;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+img.meme-logo {
+  height: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.meme-header h2 {
+  margin-right: auto;
+  font-size: 1.4rem;
+}
+
+.meme-header p {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+main {
+  margin: 2rem;
+  text-align: center;
+}
+
+.meme-form {
+  display: grid;
+  grid-template: auto / repeat(2, 1fr);
+  gap: 17px;
+  margin-bottom: 2rem;
+}
+
+.meme-form .form-input[type="text"] {
+  border: 1px solid #d5d4d8;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  padding: 10px;
+  font-weight: 400;
+  color: #0d0d0d;
+  outline: 0;
+  text-indent: 5px;
+  height: 100%;
+}
+
+.meme-form .form-input[type="range"] {
+  flex: 1 1 auto;
+}
+
+.meme-form .meme-form-label {
+  font-size: 0.75rem;
+}
+
+.meme-form button.meme-genbtn {
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+}
+
+.meme-form button.meme-genbtn.primary {
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+  color: #ffffff;
+}
+
+.meme-form button.meme-genbtn.default {
+  background: #ffffff;
+  color: #8a8989;
+  border: 1px solid #8a8989;
+}
+
+.meme-image {
+  max-width: 50%;
+  height: auto;
+  border-radius: 2px;
+  margin: auto;
+}
+
+.meme-container {
+  position: relative;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+}
+
+.meme-text {
+  position: absolute;
+  color: white;
+  font-size: 4rem;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  -webkit-text-fill-color: white;
+  transform: translate(-50%, 0%);
+}
+
+.top-text {
+  top: 10px;
+  left: 50%;
+}
+
+.bottom-text {
+  bottom: 10px;
+  left: 50%;
+}
+
+.meme-floating-label {
+  position: relative;
+}
+
+.meme-floating-label label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  pointer-events: none;
+  padding: 10px;
+}
+
+.meme-floating-label .form-input[type="text"]:focus ~ label,
+.meme-floating-label .form-input[type="text"]:not(:placeholder-shown) ~ label {
+  padding: 0px 5px;
+  transform: scale(0.85) translateY(-10px) translateX(0.15rem);
+  background: white;
+  height: auto;
+}
+
+.meme-form-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 5px;
+  width: 100%;
+}
+
+.meme-form-group > .form-input[type="text"] {
+  flex: 1 1 auto;
+}
+
+.form-input[type="color"] {
+  height: auto;
+  padding: 0px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  width: 40px;
+}
+
+.form-input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 5px;
+}
+
+.meme-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.meme-flex-row {
+  flex-direction: row;
+}
+
+.meme-flex-col {
+  flex-direction: col;
+}
+.meme-more-settings {
+  font-size: 0.75rem;
+}
+
+.meme-more-settings-tab {
+  height: 35px;
+  padding: 10px;
+  display: flex;
+  border: 1px solid gainsboro;
+  border-bottom: 3px solid #8a24ae;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.meme-more-settings-options {
+  padding: 10px;
+  display: none;
+}
+
+.meme-more-settings-options.option-active {
+  display: block;
+}
+
+.meme-more-settings-options > div {
+  margin-bottom: 0.75rem;
+}
+
+.meme-more-settings-options label {
+  min-width: 60px;
+  text-align: left;
+}
+
+.meme-more-settings-options span {
+  min-width: 60px;
+  text-align: right;
 }
